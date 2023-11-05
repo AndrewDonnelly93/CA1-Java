@@ -1,4 +1,4 @@
-package ca1.fifthSixthTasks;
+package ca1.tasksFiveToTen;
 
 public class StudentException extends Throwable {
     private String errorMessage;

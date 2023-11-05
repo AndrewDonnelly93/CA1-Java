@@ -1,4 +1,4 @@
-package ca1.fifthSixthTasks;
+package ca1.tasksFiveToTen;
 
 public class MathExam extends Exam {
     private int score;
