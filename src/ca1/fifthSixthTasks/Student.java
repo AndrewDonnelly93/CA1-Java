@@ -3,9 +3,20 @@ package ca1.fifthSixthTasks;
 import java.util.ArrayList;
 
 public class Student {
-   private int studentId;
-   private String studentName;
-   private ArrayList<MathExam> examsTaken;
+    private int studentId;
+    private String studentName;
+    private ArrayList<MathExam> examsTaken;
+
+    public Student(int studentId, String studentName, ArrayList<MathExam> examsTaken)
+            throws StudentException {
+        this.studentId = studentId;
+        // Student name exception
+        if (studentName.length() < 2 || studentName.length() > 30) {
+            throw new StudentException("\n\tStudent name should be between 2 and 30 characters");
+        }
+        this.studentName = studentName;
+        this.examsTaken = examsTaken;
+    }
 
     public int getStudentId() {
         return studentId;
@@ -28,12 +39,6 @@ public class Student {
     }
 
     public void setExamsTaken(ArrayList<MathExam> examsTaken) {
-        this.examsTaken = examsTaken;
-    }
-
-    public Student(int studentId, String studentName, ArrayList<MathExam> examsTaken) {
-        this.studentId = studentId;
-        this.studentName = studentName;
         this.examsTaken = examsTaken;
     }
 

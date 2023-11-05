@@ -14,8 +14,13 @@ public class Main {
             System.out.println(e.toString());
         }
 
-        studentsList.add(new Student(1, "John Smith", mathExamsList));
-
+        try {
+            // Testing the student name exception - uncomment to try it out
+            // studentsList.add(new Student(2, "J", mathExamsList));
+            studentsList.add(new Student(1, "John Smith", mathExamsList));
+        } catch (StudentException e) {
+            System.out.println(e.toString());
+        }
         listStudents();
     }
 
