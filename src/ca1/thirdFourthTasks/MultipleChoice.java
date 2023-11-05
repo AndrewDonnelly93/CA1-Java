@@ -1,7 +1,6 @@
-package ca1.thirdTask;
+package ca1.thirdFourthTasks;
 
 import ca1.firstTask.Scorable;
-import ca1.secondTask.Exam;
 
 public class MultipleChoice extends Exam implements Scorable {
     private int correctAnswers;
@@ -9,9 +8,17 @@ public class MultipleChoice extends Exam implements Scorable {
 
     public MultipleChoice(
             int examId, String subject, int duration, int correctAnswers, int noQuestions
-    ) {
+    ) throws ExamException {
         super(examId, subject, duration);
+        // Correct Answers exception
+        if (correctAnswers < 0) {
+            throw new ExamException("\n\tNumber of correct answers should be greater than or equal to zero");
+        }
         this.correctAnswers = correctAnswers;
+        // Number of questions exception
+        if (noQuestions < 10 || noQuestions > 50) {
+            throw new ExamException("\n\tNumber of questions should be between 10 and 50");
+        }
         this.noQuestions = noQuestions;
     }
 

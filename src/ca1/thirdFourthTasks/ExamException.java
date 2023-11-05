@@ -1,11 +1,9 @@
-package ca1.firstTask;
-
-import java.awt.*;
-
+package ca1.thirdFourthTasks;
 public class ExamException extends Throwable {
     private String errorMessage;
 
     public ExamException(String errorMessage) {
+
         this.errorMessage = errorMessage;
     }
 
@@ -15,6 +13,7 @@ public class ExamException extends Throwable {
     }
 
     public String toString() {
+
         return String.format("\n\tException: %s", errorMessage);
     }
 }
