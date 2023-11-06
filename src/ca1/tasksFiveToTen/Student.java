@@ -125,7 +125,6 @@ public class Student implements Printable {
             String score = "0.00";
             try {
                 score = exam.calculateScore();
-                System.out.println("score from print "+score);
             } catch (ExamException e) {
                 System.out.println(e.toString());
             }
