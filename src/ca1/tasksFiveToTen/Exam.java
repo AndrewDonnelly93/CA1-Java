@@ -41,7 +41,7 @@ public abstract class Exam {
         this.duration = duration;
     }
 
-    public abstract double calculateScore() throws ExamException;
+    public abstract String calculateScore() throws ExamException;
 
     public void displayExamDetails() throws ExamException {
         System.out.println("Exam Id: " + this.getExamId()

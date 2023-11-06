@@ -1,4 +1,4 @@
 package ca1.tasksFiveToTen;
 public interface Scorable {
-    double calculateScore() throws ExamException;
+    String calculateScore() throws ExamException;
 }

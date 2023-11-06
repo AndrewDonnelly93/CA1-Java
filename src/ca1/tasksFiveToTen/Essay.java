@@ -1,5 +1,5 @@
 package ca1.tasksFiveToTen;
-
+import java.text.DecimalFormat;
 public class Essay extends Exam implements Scorable {
     private String essayAnswer;
     private int grammar;
@@ -50,11 +50,12 @@ public class Essay extends Exam implements Scorable {
     }
 
     @Override
-    public double calculateScore() throws ExamException {
+    public String calculateScore() throws ExamException {
         return this.gradeEssay();
     }
 
-    private double gradeEssay() throws ExamException {
+    private String gradeEssay() throws ExamException {
+        DecimalFormat df = new DecimalFormat("0.00");
         // Content gets 60% of overall score
         // Assuming that the score is in percentage out of 100
         double contentScore = this.getContent() * 0.6;
@@ -102,13 +103,14 @@ public class Essay extends Exam implements Scorable {
         if (essayWordCount <= 0) {
             throw new ExamException("\n\tWord Count should be greater or equal to 0");
         }
+        double overallScore = contentScore + grammarScore + wordCountScore;
 
-        return contentScore + grammarScore + wordCountScore;
+        return df.format(overallScore);
     }
 
     public void displayExamDetails() {
         try {
-            double score = calculateScore();
+            String score = calculateScore();
             System.out.println("Essay Exam Result");
             System.out.println("Exam ID: " + this.getExamId());
             System.out.println("Subject: " + this.getSubject());

@@ -1,4 +1,5 @@
 package ca1.tasksFiveToTen;
+import java.text.DecimalFormat;
 
 public class MultipleChoice extends Exam implements Scorable {
     private int correctAnswers;
@@ -37,12 +38,14 @@ public class MultipleChoice extends Exam implements Scorable {
     }
 
     @Override
-    public double calculateScore() {
-        return ((double) correctAnswers / noQuestions) * 100;
+    public String calculateScore() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        double score = ((double) correctAnswers / noQuestions) * 100;
+        return df.format(score);
     }
 
     public void displayExamDetails() {
-        double score = calculateScore();
+        String score = calculateScore();
         System.out.println("Multiple Choice Exam Result");
         System.out.println("Exam ID: " + this.getExamId());
         System.out.println("Subject: " + this.getSubject());
